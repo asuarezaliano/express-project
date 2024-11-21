@@ -19,10 +19,6 @@ export const getProduct = async (req: Request, res: Response, next: NextFunction
       },
     });
 
-    if (!product) {
-      throw new CustomError(404, 'Product not found');
-    }
-
     res.json({ data: product });
   } catch (error) {
     next({ error, defaultMessage: 'Error fetching product' });
