@@ -149,7 +149,6 @@ export const deleteUpdate = async (req: Request, res: Response, next: NextFuncti
 
     res.json({ data: deletedUpdate });
   } catch (error) {
-    console.log({ b: error });
     next({ error, defaultMessage: 'Error deleting update' });
   }
 };

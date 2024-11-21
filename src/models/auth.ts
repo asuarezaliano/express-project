@@ -25,18 +25,18 @@ export const createJWT = (user: User) => {
 export const protect = (req: Request, res: Response, next: NextFunction) => {
   const bearer = req.headers['authorization'];
   if (!bearer) {
-    return res.status(401).json({ error: 'Unauthorizeda' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
   const [, token] = bearer.split(' ');
   if (!token) {
-    return res.status(401).json({ error: 'Unauthorizedb' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
   try {
     const user = jwt.verify(token, process.env.JWT_SECRET);
     req.user = user;
     next();
   } catch (error) {
-    return res.status(401).json({ error: 'Unauthorizedc' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 };
 

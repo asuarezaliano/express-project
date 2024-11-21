@@ -3,8 +3,6 @@ import { Prisma } from '@prisma/client';
 import { CustomError } from './customError';
 
 export const errorHandler = (error: Error, res: Response, defaultMessage?: string) => {
-  console.log({ a: error });
-
   if (error instanceof CustomError) {
     return res.status(error.statusCode).json({
       error: error.message,
