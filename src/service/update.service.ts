@@ -121,28 +121,35 @@ export const update = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 export const deleteUpdate = async (req: Request, res: Response, next: NextFunction) => {
-  const updateId = req.params.id;
-  const userId = req.user.id;
-  const update = await prisma.update.findUnique({
-    where: {
-      id: updateId,
-    },
-    include: {
-      product: true,
-    },
-  });
+  try {
+    const updateId = req.params.id;
+    const userId = req.user.id;
+    const update = await prisma.update.findUnique({
+      where: {
+        id: updateId,
+      },
+      include: {
+        product: true,
+      },
+    });
 
-  if (!update) {
-    throw new CustomError(404, 'Update not found');
+    if (!update) {
+      throw new CustomError(404, 'Update not found');
+    }
+
+    if (update.product.userId !== userId) {
+      throw new CustomError(404, 'Update not found');
+    }
+
+    const deletedUpdate = await prisma.update.delete({
+      where: {
+        id: updateId,
+      },
+    });
+
+    res.json({ data: deletedUpdate });
+  } catch (error) {
+    console.log({ b: error });
+    next({ error, defaultMessage: 'Error deleting update' });
   }
-
-  if (update.product.userId !== userId) {
-    throw new CustomError(404, 'Update not found');
-  }
-
-  return prisma.update.delete({
-    where: {
-      id: updateId,
-    },
-  });
 };
