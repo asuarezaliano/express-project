@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import prisma from '../db';
-import { comparePassword, createJWT } from '../models/auth';
+import { comparePassword, createJWT } from '../middleware/auth';
 import { CustomError } from '../middleware/error/customError';
 
 export const signin = async (req: Request, res: Response, next: NextFunction) => {

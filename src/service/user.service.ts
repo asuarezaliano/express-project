@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { createJWT, hashPassword } from '../models/auth';
+import { createJWT, hashPassword } from '../middleware/auth';
 import prisma from '../db';
 import { CustomError } from '../middleware/error/customError';
 

@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 import { getUsers, getUser, createUser, updateUser, deleteUser } from '../service/user.service';
-import { protect } from '../models/auth';
+import { protect } from '../middleware/auth';
 import { userValidateTypes } from '../middleware/validators/userValidations';
 
 const router = Router();

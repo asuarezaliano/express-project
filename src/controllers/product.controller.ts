@@ -6,7 +6,7 @@ import {
   updateProduct,
   deleteProduct,
 } from '../service/product.service';
-import { protect } from '../models/auth';
+import { protect } from '../middleware/auth';
 import { productValidateTypes } from '../middleware/validators/productValidate';
 
 const router = Router();

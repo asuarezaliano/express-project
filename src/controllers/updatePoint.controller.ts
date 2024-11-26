@@ -1,5 +1,5 @@
 import { Router, Request, Response, NextFunction } from 'express';
-import { protect } from '../models/auth';
+import { protect } from '../middleware/auth';
 import { updatePointValidateTypes } from '../middleware/validators/updatePointValidate';
 import {
   createUpdatePoint,
