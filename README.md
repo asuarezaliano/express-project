@@ -61,7 +61,7 @@ yarn install
 3. Create a `.env` file in the root directory:
 
 ```env
-DATABASE_URL="mysql://user:password@localhost:3306/database_name"
+DATABASE_URL="database_url"
 JWT_SECRET="your-secret-key"
 ```
 
