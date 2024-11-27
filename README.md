@@ -2,6 +2,15 @@
 
 A RESTful API built with Node.js, Express, and Prisma ORM, featuring authentication, CRUD operations, and comprehensive error handling.
 
+## 🌐 Backend URL
+
+The API is currently running at:
+
+```
+https://express-project-ylkl.onrender.com
+
+```
+
 ## 🚀 Features
 
 - **Authentication & Authorization**
@@ -94,8 +103,8 @@ POST /api/session/signin
 GET    /api/product
 GET    /api/products/:id
 POST   /api/product
-PUT    /api/products/:id
-DELETE /api/products/:id
+PUT    /api/product/:id
+DELETE /api/product/:id
 ```
 
 ### Update Endpoints
